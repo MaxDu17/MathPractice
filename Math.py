@@ -9,7 +9,7 @@ def getRange(start, end):
 
 def main():
     random.seed = time.time()
-    query = input("This is your mental math practice. What mode do you want? Teens (t), or two-digits (d)\n")
+    query = input("This is your mental math practice. What mode do you want? Teens (t), or two-digits (d), or two-and-one (o)\n")
     mode = input("add (a), subtract (s), or multiply (m)?\n")
     number = input("how many rounds do you want?\n")
     print("get ready")
@@ -18,8 +18,12 @@ def main():
     for i in range(int(number)):
         if query == 't':
             n1, n2 = getRange(11, 20)
-        else:
+        elif query == 'd':
             n1, n2 = getRange(11, 100)
+        else:
+            n1 = int(round(random.randrange(2, 10)))
+            n2 = int(round(random.randrange(11, 100)))
+
         start = time.time()
         if mode == 'a':
             result = n1 + n2
