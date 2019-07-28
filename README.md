@@ -4,11 +4,13 @@ This python project gives you math questions and times how long you take to answ
 
 ### Prerequisites
 
-None--this uses the incuded random library and that's about it. 
+None--this uses the included random, csv, and time library and that's about it. 
 
-```
-print(foo)
-```
+### Future Developments
+I plan on making a logger so you can track your progress, as well as maybe making a GUI. 
+
+### Contributions
+Why are you trying to contribute to this? Stop wasting your time (because there are thousands of math practice software that is vastly superior to this...)
 
 ## Authors
 
