@@ -7,7 +7,7 @@ This python project gives you math questions and times how long you take to answ
 None--this uses the included random, csv, and time library and that's about it. 
 
 ### Future Developments
-I plan on making a logger so you can track your progress, as well as maybe making a GUI. 
+This WILL HAVE ARTIFICIAL INTELLIGENCE, once I get around to it. It will analyze your faults and give you similar questions, using those also as training data. You become the dataset!
 
 ### Contributions
 Why are you trying to contribute to this? Stop wasting your time (because there are thousands of math practice software that is vastly superior to this...)
