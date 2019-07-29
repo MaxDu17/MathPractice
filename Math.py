@@ -1,6 +1,10 @@
 import time
 import csv
 import random
+import tensorflow as tf
+import pickle
+import pandas as pd
+
 
 def getRange(start, end):
     number_1 = int(round(random.randrange(start, end)))
@@ -12,13 +16,20 @@ def getcsvdata():
     values = list(csv.reader(k))
     k.close()
     return values
+
+def getspecificData(): #not used for now
+    data = pd.read_csv("Big.csv")  # read file
+    data_ = data[data['Mode'] == 'm']
+    data = data_[["In1", "In2", "State"]].values
+    return data
+
 def main():
     try:
         values = getcsvdata()
     except:
         values = [] #this is the first time you run this program
-
-    writer = csv.writer(open("Big.csv", "w"), lineterminator = "\n")
+    fileobj = open("Big.csv", "w")
+    writer = csv.writer(fileobj, lineterminator = "\n")
     writer.writerows(values)
     status = True
     while status:
@@ -53,10 +64,10 @@ def main():
             if int(input_) == result:
                 num_correct +=1
                 input("correct. Your time was {} seconds. Press Enter ({}/{})".format(time_taken, i+1, int(number)))
-                carrier = [n1, n2, input_, 1, time_taken]
+                carrier = [mode, n1, n2, input_, 1, time_taken]
             else:
                 input("incorrect. The answer was {}. Press Enter to continue ({}/{})".format(result, i+1, int(number)))
-                carrier = [n1, n2, input_, -1, time_taken]
+                carrier = [mode, n1, n2, input_, -1, time_taken]
 
             writer.writerow(carrier)
 
@@ -66,6 +77,9 @@ def main():
         query = input("Do you want to play again (y/n)")
         if query == 'n':
             status = False
+    fileobj.close()
+
+
 
 
 if __name__ == "__main__":
